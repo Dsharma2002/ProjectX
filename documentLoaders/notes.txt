@@ -1,0 +1,24 @@
+Covariance vs Correlation
+Both measure the relationship between two variables, but they differ in scale and interpretability.
+
+Covariance
+Measures how two variables change together.
+Cov(X,Y)=∑(xi−xˉ)(yi−yˉ)n−1\text{Cov}(X, Y) = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{n - 1}Cov(X,Y)=n−1∑(xi​−xˉ)(yi​−yˉ​)​
+
+Positive → variables move in the same direction
+Negative → variables move in opposite directions
+Zero → no linear relationship
+Units = product of the two variables' units (e.g., meters × kg)
+Range: −∞ to +∞
+
+The problem: the magnitude is hard to interpret. A covariance of 500 could mean a strong or weak relationship depending on the scale of the data.
+
+Correlation (Pearson's r)
+Covariance normalized by the standard deviations of both variables:
+r=Cov(X,Y)σX⋅σYr = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}r=σX​⋅σY​Cov(X,Y)​
+
+Always between −1 and +1
++1 → perfect positive linear relationship
+−1 → perfect negative linear relationship
+0 → no linear relationship
+Unitless — scale-independent, so directly comparable
