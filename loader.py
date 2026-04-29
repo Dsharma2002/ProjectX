@@ -13,12 +13,6 @@ load_dotenv()
 
 # prepare the model
 model = ChatMistralAI(model="mistral-small-2506")
-# load the document
-data = PyPDFLoader("documentLoaders/deeplearning.pdf").load()
-# prepare the text splitter
-splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-# split the document into chunks. This is important for large documents, as most language models have a context window limit.
-chunks = splitter.split_documents(data)
 
 # prompt template for summarization
 template = ChatPromptTemplate.from_messages(
@@ -27,11 +21,3 @@ template = ChatPromptTemplate.from_messages(
         ("human", "{text}"),
     ]
 )
-
-# This sends the entire document to the model, which may not be ideal for large documents. 
-# In practice, you might want to chunk the document and summarize each chunk separately.
-prompt = template.format_prompt(text=data)
-
-response = model.invoke(prompt)
-
-print(response.content)
