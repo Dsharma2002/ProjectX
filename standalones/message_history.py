@@ -33,3 +33,5 @@ if result.tool_calls:
     llm_result = tools[tool_name].invoke(result.tool_calls[0])
     message_history.append(llm_result)
     print(llm_with_tools.invoke(message_history).content)
+    
+# this similars to human in the loop
